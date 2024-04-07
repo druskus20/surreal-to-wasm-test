@@ -1,0 +1,26 @@
+<html> 
+  <head>
+    <title>My First Web Page</title>
+    <script type="module">
+      import init, { run, log_thing }  from "./pkg/surreal_to_wasm_test.js";
+      async function init_and_run() {
+        await init();
+        log_thing();
+        try {
+          let a = await run();
+          console.log(a);
+        } catch (e) {
+          console.error("Rust error catched in JS");
+          console.error("Probably jaime exists already");
+          console.error(e);
+        }
+      }
+      init_and_run();
+
+    </script>
+  </head>
+  <body>
+    Loaded
+  </body>
+</html>
+
